@@ -40,3 +40,20 @@ Run
 ./hexo_deploy.sh
 ```
 
+
+## Using nbconvert to include ipynb in the post
+use plugin: [hexo-jupyter-notebook](https://github.com/qiliux/hexo-jupyter-notebook)
+1. Enable post asset by adding this line in your `_config.yml`: `post_asset_folder: true`
+2. put your jupyter file in post asset directory. You can use `ln -s` , `cp source direction` and etc. 
+3. Make sure load jquery 2 (jquery 3 will error. I will fix at soon.) before you use `asset_jupyter`
+
+``` html
+<script text='text/javascript' src='/path/to/jquery.js'></script>
+{% asset_jupyter python_path jupyter_file_name %}
+
+
+eg : (i use next theme , so the jquery is in lib/jquery/index.js)
+<script text='text/javascript' src='/lib/jquery/index.js'></script>
+{% asset_jupyter /data1/anaconda3/bin/python crash-mxnet-ndarray.ipynb %}
+
+```
