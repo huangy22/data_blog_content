@@ -55,7 +55,7 @@ This course is quite an adventure for me. The biggest accomplishment that I'm qu
 
 ## Project: Academic Paper Citation Network
 
-I combined the machine learning and data visualization skills I have acquired and worked on a project that involves data collection, preprocessing, clustering algorithm development, and interactive visualizations. I'm going to write a series of posts about this project in the near future. In a word, I collected the data for all the academic articles published on Physics Review journals and stored the json files in [MongoDB](https://www.mongodb.com/). Then I implemented two types of clustering algorithms to group the physics articles based on their citation network. At the end, I built the visualizations using [D3.js](https://d3js.org/) to show the papers from different fields and subfields in physics identified from their citation relationship and the top physicists in different fields.
+I combined the machine learning and data visualization skills I have acquired and worked on a project that involves data collection, preprocessing, clustering algorithm development, and interactive visualizations. I'm going to write a series of posts about this project in the near future. In a word, I collected the data for all the academic articles published on Physics Review journals and stored the json files in [MongoDB](https://www.mongodb.com/). Then I implemented two types of clustering algorithms to group the physics articles based on their citation network. At the end, I built the visualizations using [D3.js](https://d3js.org/) to show the papers from different fields and subfields in physics, identify their citation relationship, and also find out the most influential physicists in different fields.
 
 ## Insight Data Science
 
