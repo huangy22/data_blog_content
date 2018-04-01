@@ -12,16 +12,16 @@ As I began to grow a strong interest in data science and machine learning since 
 <!-- more -->
 
 ## Tasks
-After discussing this idea with my research colleges and friends (since they will be the targeted users of my product), I set three main goals for my project: 
+After discussing this idea with my research colleagues and friends (since they will be the targeted users of my product), I set three main goals for my project: 
 
 1. Understand the landscape of the research field by looking at the citation relationship between research papers, understand how do they divide into different subfields, how subfields are interacting with each other; 
 2. For each field of interest, identify the most important papers and authors; 
 3. A more advanced functionality would be to recommend important articles or newly published articles in a user’s field according to user’s research history and interest.
 
-I am going to write a series of blog posts talking about the steps I took from start to finish in this project. In this first post, I will be focusing on the first task, and describe how I used hierarchical clustering algorithms to identify the community structure in academic citation networks. In the next post, I will talk about the interactive website I built for users (researchers and anyone who is interested in physics research!) to explore the landscape of physics research and identify the most influential reseach papers and researchers in the field of their interest. (The third task, to recommend articles for users, is still an ongoing process and hopefully I can turn it into something that can put into production someday!)
+I am going to write a series of blog posts talking about the steps I took from start to finish in this project. In this first post, I will be focusing on the first task, and describe how I used hierarchical clustering algorithms to identify the community structure in academic citation networks. In the next post, I will talk about the interactive website I built for users (researchers and anyone who is interested in physics research!) to explore the landscape of physics research and identify the most influential research papers and researchers in the field of their interest. (The third task, to recommend articles for users, is still an ongoing process and hopefully I can turn it into something that can put into production someday!)
 
 ## Data Collection
-To gather the data for physics articles and build their citation network, I made a request on the [American Physical Society](https://journals.aps.org/datasets) website who was kind enough to provide me all data about over 450,000 articles from all the APS journals (Phys. Rev. Lett., Phys. Rev. X, Rev. of Mod. Phys., to name a few) dating from 1893 to 2015. 
+To gather the data for physics articles and build their citation network, I made a request to [American Physical Society](https://journals.aps.org/datasets) who was kind enough to provide me all the data about over 450,000 articles from all the APS journals (Phys. Rev. Lett., Phys. Rev. X, Rev. of Mod. Phys., to name a few) dating from 1893 to 2015. 
 
 The dataset includes two parts:
 
@@ -41,7 +41,7 @@ Our main task is to identify the [community structure](https://en.wikipedia.org/
 
 The task of community detection in networks is a very popular and important topic in network analysis. It is very similar to the unsupervised clustering task, with a major difference which is that the data points in a graph only have topological structure but without a well-defined distance metric. In recent years, a growing number of clustering algorithms have been proposed to study the community structure of the scientific networks [^1,^2,^3,^4,^5,^6,^7].
 
-Before talking about specific models to detect the clusters, I want to first discuss how would we evaluate a clustering result in a graph. The metric mostly commonly used is the [modularity](https://en.wikipedia.org/wiki/Modularity_(networks)) score, which represents how strongly connected the nodes within each cluster compared to nodes between different clusters. To give the definition of modularity, I first need to define several notions. I will use $n$ to represent the number of nodes in the graph, $m$ as the number of edges, $c$ as the number of clusters. Then, the definition of modularity is given by the following equation:
+Before talking about specific models to detect the clusters, I want to first discuss how would we evaluate a clustering result in a graph. The metric mostly commonly used is the **modularity** score, which represents how strongly connected the nodes within each cluster compared to nodes between different clusters. To give the definition of modularity, I first need to define several notations. I will use $n$ to represent the number of nodes in the graph, $m$ as the number of edges, $c$ as the number of clusters. Then, the definition of modularity is given by the following equation:
 
 {% asset_img modularity.png %}
 
@@ -64,7 +64,7 @@ Before applying the clustering algorithm on the network of more than 20000 artic
 To have a better sense of the data, I drew the [force-directed graph](https://bl.ocks.org/mbostock/4062045) for the citation network using a Javascript library [D3.js](https://d3js.org/). In this graph, different colors represent the cluster structures in the citation network of our randomly selected 2000 articles.
 {% asset_img d3.png %}
 
-Now it's finally the time to apply the Louvain clustering algorithm on the whole dataset including27695 articles and 91346 citation links. The simulation with the Louvain algorithm on a network of 27695 articles and 91346 citation links takes about 1.5 hours. The modularity function peaks at Q = 0.762, when the number of cluster is 500. This value indicates a strong community structure in the network. We can also see a clear power-law distribution of cluster sizes in the histogram of cluster sizes. 
+Now it's finally the time to apply the Louvain clustering algorithm on the whole dataset including 27695 articles and 91346 citation links. The simulation with the Louvain algorithm on a network of 27695 articles and 91346 citation links takes about 1.5 hours. The modularity function peaks at Q = 0.762, when the number of cluster is 500. This high modularity score indicates a strong community structure in the network. We can also see a clear power-law distribution of cluster sizes in the histogram of cluster sizes. 
 {% asset_img result_wholedataset.png %}
 
 However, the force-directed graph for more than 20,000 nodes is no longer tractable. Instead I plotted the force-directed graph for the network of the clusters (all the nodes in a single cluster get compressed into a gaint node) with the size of the node representing the size of each cluster, while the link width represents number of citations between two clusters. Also note that the links between the cluster nodes are no longer directed since there are citations both ways. 
