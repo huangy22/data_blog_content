@@ -59,5 +59,5 @@ I combined the machine learning and data visualization skills I have acquired an
 
 ## Insight Data Science
 
-As the end of the sememster was around the corner, I applied for the [Insight Data Science Program](https://www.insightdatascience.com/) at the end of March. I'll talk about my experience of applying and participating the Insight program, and interviewing with companies in the next post!
+As the end of the sememster was around the corner, I applied for the [Insight Data Science Program](https://www.insightdatascience.com/) at the end of March. I'll talk about my experience of applying and participating the Insight program, and interviewing with companies in the [next post](http://yuanhuangblog.com/2018/06/30/A-Journey-From-Physics-to-Data-Science-Part-II/)!
 
