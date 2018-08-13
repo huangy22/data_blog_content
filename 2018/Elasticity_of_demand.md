@@ -32,9 +32,9 @@ Therefore we have
 $$ E_n = \frac{d \sum_{\{m_n\}} \sigma(c(v_n + \delta v_m - P_n))}{dP_n} \cdot \frac{P_n}{\sum_{\{m_n\}} \sigma(c(v_n + \delta v_m - P_n))}$$
 
 Define $f(n, m) = c ( v _n + \delta v _m - P _n)$, then we have
-$$ \frac{d \sum_{\{m_n\}} \sigma(f_{m,n})} {d P_n} = \sum_{\{m_n\}} \sigma(f_{m,n}) (1-\sigma(f_{m,n})) \cdot \frac{df_{m,n}}{dP_n} = c \sum_{\{m_n\}} \sigma(f_{m,n}) (1-\sigma(f_{m,n}))$$
+$$ \frac{d \sum_{\{m_n\}} \sigma(f_{m,n})} {d P_n} = \sum_{\{m_n\}} \sigma(f_{m,n}) (1-\sigma(f_{m,n})) \cdot \frac{df_{m,n}}{dP_n} = -c \sum_{\{m_n\}} \sigma(f_{m,n}) (1-\sigma(f_{m,n}))$$
 
-$$\Rightarrow E_n =  P_n \cdot \frac{c \cdot \sum_{\{m_n\}} \sigma(f_{m,n}) (1-\sigma(f_{m,n}))}{\sum_{\{m_n\}} \sigma(f_{m,n})} = P_n \cdot \frac{ c \cdot \langle \sigma(f_{m,n}) (1-\sigma(f_{m,n}))\rangle_{m_n}}{\langle \sigma(f_{m,n})\rangle_{m_n}}$$
+$$\Rightarrow E_n =  -P_n \cdot \frac{c \cdot \sum_{\{m_n\}} \sigma(f_{m,n}) (1-\sigma(f_{m,n}))}{\sum_{\{m_n\}} \sigma(f_{m,n})} = -P_n \cdot \frac{ c \cdot \langle \sigma(f_{m,n}) (1-\sigma(f_{m,n}))\rangle_{m_n}}{\langle \sigma(f_{m,n})\rangle_{m_n}}$$
 
 In physics, the sigmoid function (Fermi-Dirac distribution) $\sigma(x) = \frac{1}{1+ e^{-cx}}$ defines the occupation of fermions over possible energy states and the derivative of the Fermi distribution gives the Fermi surface. In the limit of $c \to \infty$ (equivalent to zero-temperature limit), the Fermi distribution becomes a step function $sgn(x)$, and its derivative becomes a delta function $\delta(x)$. As $c$ decreases (finite temperature), the step function softens and the derivative becomes a finite range distribution around $x=0$. [see this figure](https://www.researchgate.net/figure/Graph-of-the-Logistic-function-and-its-derivative-function_fig1_268874045)
 
@@ -68,10 +68,10 @@ Therefore, based on all the assumptions, we shall see a roughly linear relations
 
 *Note: The dimension of elasticity*
 
-$$E_n = P_n \cdot \frac{ c \cdot \langle \sigma(f_{m,n}) (1-\sigma(f_{m,n}))\rangle_{m_n}}{\langle \sigma(f_{m,n})\rangle_{m_n}}$$
+$$E_n = -P_n \cdot \frac{ c \cdot \langle \sigma(f_{m,n}) (1-\sigma(f_{m,n}))\rangle_{m_n}}{\langle \sigma(f_{m,n})\rangle_{m_n}}$$
 
 In the above equation, the sigmoid function and the derivative $\sigma (1-\sigma)$ are dimensionless, and $c \cdot P_n$ is dimensionless, therefore the elasticity is also dimensionless.
 
 In the $c\to\infty$ limit, it's a little less obvious. Recall that the value $v_n$ and offset $\delta v_m$ both have the same dimension with the price $P_n$, therefore the standard deviation of $\delta v_m$, which is $\sigma_C$, also has the dimension of price. In the $c\to\infty$ limit, 
-$$E_n = P_n \cdot \frac{1}{\sqrt{2\pi} \sigma_C} e^{-(P_n-v_n)^2/2\sigma_C^2} \frac{1}{\Phi(\frac{v_n - P_n}{\sigma_C})}$$
+$$E_n = -P_n \cdot \frac{1}{\sqrt{2\pi} \sigma_C} e^{-(P_n-v_n)^2/2\sigma_C^2} \frac{1}{\Phi(\frac{v_n - P_n}{\sigma_C})}$$
 the unit in $P_n$ and $\sigma_C$ cancel with each other, leaving the elasticity dimensionless.
