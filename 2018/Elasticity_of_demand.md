@@ -52,7 +52,7 @@ $$
 $$
 which is a normal function with mean $P_n-v_n$ and standard deviation $\sigma_C$. When $c$ is a finite number, the infinitely sharp delta function becomes flatter, my intuition would be that this average will also have a wider tail than normal function. **If we assume that our current pricing strategy roughly captures the average value for the product, in other words that the difference between $P_n$ and $v_n$ does not deviate too far from zero and from each other**, the dependence of this function on $P_n$ should not be too strong.
 
-The denominator of the equation $\langle \sigma(f_{m,n})\rangle_{m_n}$ is the average conversion probability of the product. If we also use the assumption that $\delta v_m \sim \mathcal{N}(0, \sigma_C^2)$, then
+The denominator of the equation represents the average conversion probability of the product. If we also use the assumption that $\delta v_m \sim \mathcal{N}(0, \sigma_C^2)$, then
 $$
 \begin{aligned}
 & \lim_{c\to\infty} \langle \sigma(f_{m,n}) \rangle_{m_n}\\
