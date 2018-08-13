@@ -13,10 +13,7 @@ date: 2018-08-12
 <!-- more -->
 
 Suppose we have $N$ products, each with price $P_n$, and send them out to $M$ customers. At each event $u$($u$ means box unit), when customer $m$ receives product $n$, the probability of purchase is captured by the following item-response-type model with price as an additional feature:
-
-\begin{equation}
-	\text{prob}_u =  \text{prob} _{m,n} =\sigma (c(v _n + \delta v _m - P _n))
-\end{equation}
+$$\text{prob}_u =  \text{prob} _{m,n} =\sigma (c(v _n + \delta v _m - P _n))$$
 
 Here, $\sigma$ is the sigmoid function, $P_n$ is the price of the product, $v_n$ represents the "value" of the product, $\delta v _m$ represents the customer's budget preference, meaning how much more or less she's willing to pay than average. $v_n$ and $\delta v _m$ both have the same unit with price. The coefficient $c$, with the unit of inverse price, characterizes how strongly the probability depends on the price. Note that $c P$ is a dimensionless number.
 
