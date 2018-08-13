@@ -62,9 +62,9 @@ $$
 &= \Phi(\frac{v_n-P_n}{\sigma_C})
 \end{aligned}  
 $$
-where $\Phi$ is the cumulative distribution function for standard normal distribution. The [shape of this function](https://en.wikipedia.org/wiki/Normal_distribution#/media/File:Normal_Distribution_CDF.svg) is very similar to a sigmoid function. When $c$ is finite, this function is also likely to become even wider. **Again, suppose we are setting the price for our products to reflect the conversion rate, in other words the price is set high for higher value products and vise versa**, then the average conversion probability should also not strongly correlate with price.
+where $\Phi$ is the cumulative distribution function for standard normal distribution. The [shape of this function](https://en.wikipedia.org/wiki/Normal_distribution#/media/File:Normal_Distribution_CDF.svg) is very similar to a sigmoid function. When $c$ is finite, this function is also likely to become even wider. **Again, suppose we are setting the price of our products to reflect the conversion rate, in other words, the price is set high for higher value products and vise versa**, then the average conversion probability should also not strongly correlate with price.
 
-Therefore, based on all the assumptions, we shall see a roughly linear relationship between $E_n$ and $P_n$, and it also seems to be consistent with the results we've seen so far. If we see some products strongly deviate from this linear behavior, that might indicate that there's a large difference between the current price and its value learned from the model. But it could also mean that the number of sample for this product is not enough and the value learned from the model is not a good estimate for the actual value.
+Therefore, based on all the assumptions, we shall see a roughly linear relationship between $E_n$ and $P_n$. If we see some products strongly deviate from this linear behavior, that might indicate that there's a large difference between the current price and its value learned from the model. This might indicates that our price strategy about that product should be better fine-tuned.
 
 *Note: The dimension of elasticity*
 
