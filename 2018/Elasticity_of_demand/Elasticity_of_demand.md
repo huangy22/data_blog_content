@@ -2,7 +2,7 @@ title: Understanding the price elasticity of demand from an item response model 
 tags:
 	- price elasticity
 	- item response model
-categories: economics
+categories: Misc
 date: 2018-08-12
 ---
 
@@ -14,7 +14,7 @@ date: 2018-08-12
 
 Price elasticity is an important economic concept that will help with forecasting your sales and setting prices. For instance, you can forecast the impact of a change in price on sales volume and sales revenue. If a small change in price is accompanied by a large change in quantity demanded, the product is said to be elastic (or responsive to price changes). On the other hand, a product is deemed inelastic if a large change in price is accompanied by a small amount of change in quantity demanded. For the past a few months, I've been struggling to understand the price elasticity of products at work. In this blog post, I want to start from a theoretical point of view and derive the asymptotic behavior for elasticity as a function of price. You will see a lot of equations in today's post, don't panic!
 
-Suppose we have $N$ products, each with price $P_n$, and send them out to $M$ customers. At each event $u$($u$ means box unit), when customer $m$ receives product $n$, the probability of purchase is captured by the following item-response-type model with price as an additional feature:
+Suppose we have $N$ products, each with price $P_n$, and send them out to $M$ customers. At each event $u$, when customer $m$ receives product $n$, the probability of purchase is captured by the following item-response-type model with price as an additional feature:
 $$\text{prob}_u =  \text{prob} _{m,n} =\sigma (c(v _n + \delta v _m - P _n))$$
 
 Here, $\sigma$ is the sigmoid function, $P_n$ is the price of the product, $v_n$ represents the "value" of the product, $\delta v _m$ represents the customer's budget preference, meaning how much more or less she's willing to pay than average. $v_n$ and $\delta v _m$ both have the same unit with price. The coefficient $c$, with the unit of inverse price, characterizes how strongly the probability depends on the price. Note that $c P$ is a dimensionless number.
@@ -117,11 +117,11 @@ with user number $N=50$ and product number $M=1000$. The values of all the model
 $$ v_n \sim \mathcal{N}(0.5, 1) $$
 $$ \delta v_m \sim \mathcal{N}(0, 1) $$
 $$ P_n \sim \mathcal{N}(1, 0.3) $$
-$$ c = 1 $$
+$$ c = 2 $$
 
-Now we have a generative model on hand and we can use it to generate 10,000 box unit events, each from a Bernoulli trail with probability $\text{prob}_u$.
+Now we have a generative model on hand and we can use it to generate 10,000 purchase events, each from a Bernoulli trail with probability $\text{prob}_u$.
 
-Then the elasticity are calculated from the equation
+Then the elasticity is calculated from the equation
 $$ E_n = -P_n \cdot \frac{ c \cdot \langle \sigma(f_{m,n}) (1-\sigma(f_{m,n}))\rangle_{m_n}}{\langle \sigma(f_{m,n})\rangle_{m_n}} $$
 
 We can see that the relationship between $E_n$ and $P_n$ is indeed roughly a linear curve:
